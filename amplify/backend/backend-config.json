@@ -1,0 +1,21 @@
+{
+  "api": {
+    "employeeapp": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 50,
+              "apiKeyExpirationDate": "2022-04-07T05:41:16.469Z",
+              "description": ""
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  }
+}
