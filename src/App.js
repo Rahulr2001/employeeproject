@@ -4,7 +4,7 @@ import About from './Pages/About'
 import Careers from './Pages/Careers'
 import Empeditttt from './Pages/empedit' 
 import Createemp from './Pages/Createemp'
-import Sidenavmenubar from './Component/Sidenavmenubar'
+import Sidenavmenubar from './Pages/Component/Sidenavmenubar'
 import { BrowserRouter as Router, Link, Routes, Route }  from 'react-router-dom'
 
 
@@ -28,5 +28,5 @@ function App() {
     </div>
   )
 }
-//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
+//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
 export default App

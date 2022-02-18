@@ -1,7 +1,6 @@
 import React from 'react'
 import './Sidenavmenubar.css'
 import HomeIcon from '@mui/icons-material/Home'
-import InfoIcon from '@mui/icons-material/Info'
 import WorkIcon from '@mui/icons-material/Work'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import {NavLink} from 'react-router-dom'

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Pages.css'; 
-import {Outlet, Link} from 'react-router-dom'
+import {Outlet, Link} from 'react-router-dom';
+import './Component/Sidenavmenubar.css'
 
 function About() {
     return (

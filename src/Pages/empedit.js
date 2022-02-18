@@ -52,12 +52,11 @@ render() {
 //  };
   return (
   <div className="empcontainer0" >
-    
 <table className="pctable">
   <tr className="tabletitle">
     <th>Employee-ID</th>
     <th 
-     //onClick={()=>sorting("name")}
+     
      >Name</th>
     <th>Email</th>
     <th>Phone</th>
@@ -82,7 +81,7 @@ render() {
   ))
   }
 </table>
-
+<table>
   {
     this.state.employees.map((rest, i) => (
       <table className="mobiletable">
@@ -134,8 +133,10 @@ render() {
       </tr>
       
   </table>
+  
   ))
   }
+  </table>
 
   </div>
 );

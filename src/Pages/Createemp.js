@@ -446,15 +446,15 @@ render(){
 const idRegExp= /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 const validationSchema = Yup.object({
-    name: Yup.string().required("Name Cannot Be Empty").min(2,"Name is too Short").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+    name: Yup.string().required("Name Cannot Be Empty").min(2,"Name is too Short").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed  "),
     email: Yup.string().required("Email Cannot be Empty").email("Enter An Valid Email"),
     phone:Yup.string().required("Phone number Cannot be Empty").matches(phoneRegExp, "Phone number is not valid").min(9,"phone number is too Short").max(12,"Phone number is too long"),
     country:Yup.string().required("Select Your Country").matches(/^[aA-zZ\s]+$/, "Please Select Your Country "),
     dob:Yup.string().required("Enter Your Date of birth").max(10,"invalida dob"),
     age:Yup.string().required("Enter Your age").matches(/^[0-9]{1,3}?$/, "Age Should be in numbers ").max(2,"You are not eligible").min(2,"You are not eligible.."),
     address:Yup.string().required("Enter address").min(10,"Enter Address Briefly"),
-    state:Yup.string().required("Enter Your State").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
-    city:Yup.string().required("Enter Your City").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+    state:Yup.string().required("Enter Your State").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed  "),
+    city:Yup.string().required("Enter Your City").matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed  "),
     id:Yup.string().required("ID cannot be Empty").matches(idRegExp,"ID Number must be 6 digits").max(6,"Too long")
     
   });
