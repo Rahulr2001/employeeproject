@@ -3,6 +3,7 @@ import './Sidenavmenubar.css'
 import HomeIcon from '@mui/icons-material/Home'
 import InfoIcon from '@mui/icons-material/Info'
 import WorkIcon from '@mui/icons-material/Work'
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import {NavLink} from 'react-router-dom'
 function Sidenavmenubar() {
     return (
@@ -23,11 +24,11 @@ function Sidenavmenubar() {
                             </div>
                         </li>
                     </NavLink>
-                    <NavLink to ="about" >
+                    <NavLink to ="employee" >
                         <li>
-                            <InfoIcon className = 'icons'></InfoIcon>
+                            <PeopleAltIcon className = 'icons'></PeopleAltIcon>
                             <div className = 'menu-text'>
-                                About
+                                Employee
                             </div>
                         </li>
                     </NavLink>

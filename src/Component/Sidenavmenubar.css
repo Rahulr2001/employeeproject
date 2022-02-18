@@ -4,10 +4,10 @@ a{
 
 .side-nav{
     box-shadow: 0 2px 4px rgba(0,0,0,0.7);
-    position: fixed;
+    position:fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     background-color: #0b9ebf;
 }
 
@@ -73,12 +73,11 @@ nav{
     width: 60px;
     z-index: 100;
     overflow: hidden;
-    
+    margin-right:0 ;
 }
 
 #menu:checked ~ nav{
-    width: 200px;
-    
+    width: 200px;    
 }
 
 nav ul{

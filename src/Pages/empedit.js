@@ -53,7 +53,7 @@ render() {
   return (
   <div className="empcontainer0" >
     
-<table>
+<table className="pctable">
   <tr className="tabletitle">
     <th>Employee-ID</th>
     <th 
@@ -82,6 +82,61 @@ render() {
   ))
   }
 </table>
+
+  {
+    this.state.employees.map((rest, i) => (
+      <table className="mobiletable">
+      <tr className="mtname">
+        <th>Name</th>
+        <td>{rest.name} |   ID:{rest.id}</td>
+        </tr>
+      
+      <tr className="mtda">
+        <th className="mtdobt">
+          <p>Date of birth:</p>
+        </th>
+        <th className="mtaget">
+          Age:
+        </th>
+        </tr>
+        <tr>
+        
+         <td className="mtage">{rest.dob}</td> 
+        <td className="mtdob">{rest.age}</td>
+        
+      </tr>
+      
+      <th className="mtaddresst">Address:</th>
+      <td className="mtaddress">
+      <p>{rest.address}</p>
+      <p>{rest.city}</p>
+      <p>{rest.state}</p>
+      </td>
+      <tr className="mtcountryt">
+        <th>Country:</th>
+        <td className="mtcountry">{rest.country}</td>
+      </tr>
+      <tr>
+        <th>
+          Email id:
+        </th>
+        <td>
+          {rest.email}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Phone.num:
+        </th>
+        <td>
+          {rest.phone}
+        </td>
+      </tr>
+      
+  </table>
+  ))
+  }
+
   </div>
 );
 

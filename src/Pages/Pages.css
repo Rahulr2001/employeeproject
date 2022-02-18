@@ -11,7 +11,9 @@
     left: 17%;
     margin-bottom: 3%;
     margin-top: 5%;
-    font-weight: bolder; 
+    font-weight: bolder;
+    line-height: 100px; 
+    
 
 }
 .searchbutton{
@@ -24,7 +26,7 @@
     background-image: linear-gradient(white, white);
 }
 .searchbutton:hover{
-  background-image: linear-gradient(white, #0e9ba531);;
+  background-image: linear-gradient(white, #0e9ba531);
 }
 .createbutton{
 padding: 5px 10px 5px 10px;
@@ -68,6 +70,7 @@ border-width: 0px;
     left: 17%;
     width: 70%; 
     margin-bottom:2% ; 
+    
 }
 
 
@@ -79,28 +82,29 @@ border-width: 0px;
     align-items: center;
   }
 .empcontainer0{
+    
     display: flex;
     height: 100%;
     width: 80%;
     margin-top: 0;
     margin-left: 230px;
 }
-  table {
+  .pctable {
     border-collapse: collapse;
     width: 100%;
     height: 100%;
     
   }
     
-  th{
+  .pctable th{
     padding: 8px;
     text-align: left;
   }
-  tr{
+  .pctable tr{
     background-color: rgb(238, 237, 237);
     border-bottom: 20px solid white;
   }
-   .tablestyle{
+   .pctable .tablestyle{
        border-left: solid 	#32CD32 ;
        border-left-width:10px ;
        padding-left:20px ;
@@ -115,11 +119,13 @@ border-width: 0px;
       background-color: white;
       position: relative;
       left: 22%;
+      min-width: 49%;
       width: 50%;
       padding: 5%;
       justify-content: center;
       outline-width: 30px;
       outline-color: rgb(83, 83, 235);
+      display: block;
   }
 
   input{
@@ -207,7 +213,95 @@ border-width: 0px;
 
 @media (min-width: 768px) {
   .empcreate {
-    font-size: 24px;
-    min-width: 196px;
+  font-size: 24px;
+  min-width: 196px;  
+  }
+}
+.editemp{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+.mobiletable{
+display: none;
+border-left:10px solid  #32CD32;
+}
+.mtage{
+  text-align: center;
+}
+.mtdob{
+  text-align: center;
+}
+.mobiletable tr{
+  height: 30px;
+  vertical-align: top;
+  
+}
+
+
+
+@media only screen and (max-width : 480px){
+  .createbutton:hover{
+    background-image: linear-gradient(white, #0e9ba531);
+    background-color: rgba(255, 255, 255, 0);
+    
+  }
+  .pctable{
+    display: none;
+  }
+  .mobiletable{
+    display: block;
+    background-color: #008b8b4d;
+    width: 100%;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  .empcontainer0{
+    margin-left: 70px;
+  }
+  .createbutton{
+    left:1%;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    text-decoration: none;
+    border-radius: 2px;
+    border-bottom: 3px solid #0e9ca5; 
+    background-color: white;
+    color: black;      
+    }
+  .navbutton{
+    width: 100%;
+  }
+  .empcontainer{
+    width: 80%;
+    margin-top: 0;
+    margin-left: 70px;
+    border: solid 3px #6e7491;
+    border-color: linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);
+    padding: 1%;
+  }
+  .container{
+    margin: 2%;
+    background-color: white;
+    margin: 2%;
+    background-color: white;
+    position: relative;
+    left: 0;
+    min-width: 90%;
+    width: 100%;
+    padding: 5%;
+    justify-content:center;
+    outline-width: 0;
+    outline-color: white;
+    display: block;    
+    outline-width: 30px;    
+    display: block;
+}
+.empcreate {
+  font-size: 24px;
+  min-width: 196px;
+  margin-left: 20%;  
   }
 }
