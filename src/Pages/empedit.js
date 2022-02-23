@@ -157,7 +157,7 @@ render() {
 </table>
 <table>
   {
-    this.state.employees.map((rest, i) => (
+    this.state.displayResults.map((rest, i) => (
       <table className="mobiletable">
       <tr className="mtname">
         <th>Name</th>
