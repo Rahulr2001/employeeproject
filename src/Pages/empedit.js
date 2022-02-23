@@ -2,21 +2,16 @@ import React, { useState, useEffect,Component } from "react";
 import { listTodos } from "../graphql/queries";
 import "./Pages.css"
 import { API, graphqlOperation } from 'aws-amplify'
+import SearchIcon from '@mui/icons-material/Search';
 
 //onst [order,setorder]=useState("ASC");
 class Empeditttt extends Component
 {
   
-  state = {  id:'',
-  name:'',
-  age:'',
-  email:'',
-  dob:'',
-  phone:'',
-  address:'',
-  city:'',
-  state:'',
-  country:'', employees: [] }
+  state = {  employees: [],
+    originalResults: [],
+    displayResults: []
+   }
 
   
 
@@ -27,6 +22,7 @@ class Empeditttt extends Component
       const apiData = await API.graphql(graphqlOperation(listTodos))
       const employees = apiData.data.listTodos.items
       this.setState({ employees })
+      this.setState({ originalResults: employees, displayResults: employees });
       console.log(employees)
       
     } catch (err) {
@@ -34,28 +30,106 @@ class Empeditttt extends Component
     }
   }
 
+  filterResults = (query, results) => {
+    return results.filter(employee => {
+      const name=employee.name.toLowerCase();
+      return name.includes(query);
+    });
+  };
+  sortResultsage = event => {
+    this.setState(prevState => {
+      const { displayResults, sortOrder } = prevState;
+
+      if (sortOrder === "descending") {
+        displayResults.sort((a, b) => {
+          if (a.age > b.age) {
+            return -1;
+          }
+          return a.age > b.age ? 1 : 0;
+        });
+      } else {
+        displayResults.sort((a, b) => {
+          if (a.age < b.age) {
+            return -1;
+          }
+          return a.age > b.age ? 1 : 0;
+        });
+      }
+
+      return {
+        displayResults,
+        sortOrder: sortOrder === "descending" ? "ascending" : "descending"
+      };
+    });
+  };
+
+
+  sortResults = event => {
+    this.setState(prevState => {
+      const { displayResults, sortOrder } = prevState;
+
+      if (sortOrder === "descending") {
+        displayResults.sort((a, b) => {
+          if (a.name > b.name) {
+            return -1;
+          }
+          return a.name > b.name ? 1 : 0;
+        });
+      } else {
+        displayResults.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          return a.name > b.name ? 1 : 0;
+        });
+      }
+
+      return {
+        displayResults,
+        sortOrder: sortOrder === "descending" ? "ascending" : "descending"
+      };
+    });
+  };
+
+  onChange = e => {
+    const query = e.target.value;
+
+    this.setState(prevState => ({
+      displayResults:
+        query.length > 0
+          ? this.filterResults(query, prevState.originalResults)
+          : prevState.originalResults
+    }));
+  };
+
 render() { 
-  //const [order,setorder]=useState("ASC");
-  // sorting=(col) =>{
-  //  if(order==="ASC"){
-  //    const sorted =[...employees].sort((a,b)=>
-  //    a[col].toLowerCase()>b[col].toLowerCase()?1:-1);
-   //   this.setState(sorted);
-   //   setorder("DSC");
-  //  }
-   // if(order==="DSC"){
-  //    const sorted =[...employees].sort((a,b)=>
-     // a[col].toLowerCase()<b[col].toLowerCase()?1:-1);
-   //   this.setState(sorted);
-   //   setorder("ASC");
- //  }
-//  };
   return (
+    <div>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+      <div className="filters">
+<button className="btn" >Sort by:</button>
+<div className="dropdown">
+  <button className="btn">
+    <i className="fa fa-caret-down"></i>
+  </button>
+  <div className="dropdown-content">
+    <a onClick={this.sortResults}>Name</a>
+    <a onClick={this.sortResultsage}>Age</a>
+    
+  </div>
+  
+</div>
+<SearchIcon className="searchicon"></SearchIcon>
+<input className="searchbar" label="Searchs" onChange={this.onChange} placeholder="  search by employee" />
+
+</div>
   <div className="empcontainer0" >
+    
 <table className="pctable">
+  
   <tr className="tabletitle">
     <th>Employee-ID</th>
-    <th 
+    <th
      
      >Name</th>
     <th>Email</th>
@@ -64,7 +138,7 @@ render() {
     <th>Address</th>
     <th>Country</th>
   </tr>{
-    this.state.employees.map((rest, i) => (
+    this.state.displayResults.map((rest, i) => (
   <tr key={i}>
     <td className="tablestyle">{rest.id}</td>
     <td>{rest.name}</td>
@@ -138,7 +212,7 @@ render() {
   }
   </table>
 
-  </div>
+  </div></div>
 );
 
 

@@ -15,9 +15,10 @@ function About() {
             <Link to="/employee/empedit" className='searchbutton'> All Employee </Link> 
         
                    
-            <Link  to="/employee/create-employee" className='createbutton' > Create Your Employee </Link> 
+            <Link  to="/employee/create-employee" className='createbutton' > Join now </Link> 
         
         </div>
+        <div className='navline'/>
         
         <Outlet/>
         </div>
